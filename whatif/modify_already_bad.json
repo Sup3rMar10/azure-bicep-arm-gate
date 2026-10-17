@@ -1,0 +1,57 @@
+{
+  "status": "Succeeded",
+  "changes": [
+    {
+      "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-pay/providers/Microsoft.Storage/storageAccounts/stpaydev",
+      "changeType": "Modify",
+      "before": {
+        "type": "Microsoft.Storage/storageAccounts",
+        "name": "stpaydev",
+        "location": "westeurope",
+        "tags": {
+          "owner": "platform",
+          "env": "dev"
+        },
+        "kind": "StorageV2",
+        "sku": {
+          "name": "Standard_ZRS"
+        },
+        "properties": {
+          "supportsHttpsTrafficOnly": false,
+          "minimumTlsVersion": "TLS1_2",
+          "allowBlobPublicAccess": false,
+          "allowSharedKeyAccess": false,
+          "publicNetworkAccess": "Disabled",
+          "networkAcls": {
+            "defaultAction": "Deny",
+            "bypass": "AzureServices"
+          }
+        }
+      },
+      "after": {
+        "type": "Microsoft.Storage/storageAccounts",
+        "name": "stpaydev",
+        "location": "westeurope",
+        "tags": {
+          "owner": "platform",
+          "env": "dev"
+        },
+        "kind": "StorageV2",
+        "sku": {
+          "name": "Standard_ZRS"
+        },
+        "properties": {
+          "supportsHttpsTrafficOnly": false,
+          "minimumTlsVersion": "TLS1_2",
+          "allowBlobPublicAccess": false,
+          "allowSharedKeyAccess": true,
+          "publicNetworkAccess": "Disabled",
+          "networkAcls": {
+            "defaultAction": "Deny",
+            "bypass": "AzureServices"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+name: whatif
+
+# Reference pipeline, NEVER RUN against a real Azure subscription (there is none behind this repository).
+# Skipped unless the repository variable AZURE_PLAN_CLIENT_ID is set. It asks Azure what a deployment WOULD
+# change, then applies the same rules to that result before anything is deployed.
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  whatif:
+    if: vars.AZURE_PLAN_CLIENT_ID != ''
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write # lets this job request a GitHub OIDC token; nothing else gets it
+      contents: read
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - uses: azure/login@v3
+        with:
+          client-id: ${{ vars.AZURE_PLAN_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+      - name: Ask Azure what would change
+        env:
+          GROUP: ${{ vars.AZURE_RESOURCE_GROUP }}
+        run: >
+          az deployment group what-if --resource-group "$GROUP" --template-file bicep/main.bicep
+          --parameters bicep/dev.parameters.json --no-pretty-print --output json > whatif.json
+      - name: Apply the rules to the resolved result
+        run: python -m bicepgate whatif whatif.json

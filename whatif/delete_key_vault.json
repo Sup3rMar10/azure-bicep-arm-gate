@@ -1,0 +1,29 @@
+{
+  "status": "Succeeded",
+  "changes": [
+    {
+      "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-pay/providers/Microsoft.KeyVault/vaults/pay-dev-kv",
+      "changeType": "Delete",
+      "before": {
+        "type": "Microsoft.KeyVault/vaults",
+        "name": "pay-dev-kv",
+        "location": "westeurope",
+        "tags": {
+          "owner": "platform",
+          "env": "dev"
+        },
+        "properties": {
+          "enableRbacAuthorization": true,
+          "enableSoftDelete": true,
+          "softDeleteRetentionInDays": 90,
+          "enablePurgeProtection": true,
+          "publicNetworkAccess": "Disabled",
+          "networkAcls": {
+            "defaultAction": "Deny",
+            "bypass": "AzureServices"
+          }
+        }
+      }
+    }
+  ]
+}

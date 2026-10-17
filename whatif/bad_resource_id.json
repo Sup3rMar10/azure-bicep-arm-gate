@@ -1,0 +1,10 @@
+{
+  "status": "Succeeded",
+  "changes": [
+    {
+      "changeType": "Create",
+      "resourceId": "not-an-id",
+      "after": {}
+    }
+  ]
+}

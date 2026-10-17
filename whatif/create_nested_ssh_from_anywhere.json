@@ -1,0 +1,23 @@
+{
+  "status": "Succeeded",
+  "changes": [
+    {
+      "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-pay/providers/Microsoft.Network/networkSecurityGroups/nsg/securityRules/allow-admin",
+      "changeType": "Create",
+      "after": {
+        "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+        "name": "allow-admin",
+        "properties": {
+          "priority": 200,
+          "direction": "Inbound",
+          "access": "Allow",
+          "protocol": "Tcp",
+          "sourceAddressPrefix": "*",
+          "sourcePortRange": "*",
+          "destinationAddressPrefix": "*",
+          "destinationPortRange": "22"
+        }
+      }
+    }
+  ]
+}

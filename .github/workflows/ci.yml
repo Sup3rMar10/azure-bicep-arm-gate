@@ -1,0 +1,52 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+env:
+  BICEP_VERSION: v0.48.1
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.11", "3.13"]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install the pinned Bicep compiler
+        run: |
+          curl -fsSL -o bicep "https://github.com/Azure/bicep/releases/download/${BICEP_VERSION}/bicep-linux-x64"
+          chmod +x bicep
+          sudo mv bicep /usr/local/bin/bicep
+          bicep --version
+      - run: python -m pip install pytest pyyaml
+      - run: python -m pytest
+      - name: Every fixture, compiled by the real compiler, must give exactly the expected rule ids
+        run: python tools/run_matrix.py
+      - name: The shipped templates pass the gate
+        run: python -m bicepgate check bicep/main.bicep --params bicep/dev.parameters.json
+      - name: The shipped templates pass Bicep's own linter
+        run: bicep lint bicep/main.bicep
+      - name: Generated fixtures are in sync with their generators
+        run: |
+          python tools/make_fixtures.py
+          python tools/make_whatif.py
+          git diff --exit-code
+
+  workflows:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - run: |
+          bash <(curl -s https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash)
+          ./actionlint -color

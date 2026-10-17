@@ -1,0 +1,190 @@
+{
+  "composed_good": [],
+  "composed_http_through_parameter": [
+    "STG-001"
+  ],
+  "composed_tls_from_expression": [
+    "STG-002"
+  ],
+  "composed_tls_through_parameter": [
+    "STG-002"
+  ],
+  "kv_access_policies": [
+    "KV-002"
+  ],
+  "kv_good": [],
+  "kv_good_retention_30": [],
+  "kv_good_soft_delete_default": [],
+  "kv_no_purge_protection": [
+    "KV-001"
+  ],
+  "kv_no_tags": [
+    "TAG-001"
+  ],
+  "kv_open_network": [
+    "KV-004"
+  ],
+  "kv_purge_protection_unset": [
+    "KV-001"
+  ],
+  "kv_rbac_unset": [
+    "KV-002"
+  ],
+  "kv_retention_29": [
+    "KV-003"
+  ],
+  "kv_retention_7": [
+    "KV-003"
+  ],
+  "kv_soft_delete_off": [
+    "KV-003"
+  ],
+  "nsg_all_ports_range": [
+    "NSG-001",
+    "NSG-002"
+  ],
+  "nsg_all_ports_star": [
+    "NSG-001",
+    "NSG-002"
+  ],
+  "nsg_good": [],
+  "nsg_good_above_rdp": [],
+  "nsg_good_between_ssh_and_rdp": [],
+  "nsg_good_deny_ssh_from_anywhere": [],
+  "nsg_good_https_only_from_anywhere": [],
+  "nsg_good_outbound_ssh_from_anywhere": [],
+  "nsg_good_ssh_below_range": [],
+  "nsg_good_virtualnetwork_tag": [],
+  "nsg_no_tags": [
+    "TAG-001"
+  ],
+  "nsg_ports_list": [
+    "NSG-001"
+  ],
+  "nsg_range_20_25": [
+    "NSG-001"
+  ],
+  "nsg_range_21_22": [
+    "NSG-001"
+  ],
+  "nsg_range_22_23": [
+    "NSG-001"
+  ],
+  "nsg_range_3388_3389": [
+    "NSG-001"
+  ],
+  "nsg_range_3389_3390": [
+    "NSG-001"
+  ],
+  "nsg_range_spanning_both": [
+    "NSG-001"
+  ],
+  "nsg_rdp_from_star": [
+    "NSG-001"
+  ],
+  "nsg_rule_all_ports": [
+    "NSG-001",
+    "NSG-002"
+  ],
+  "nsg_rule_good": [],
+  "nsg_rule_ssh_from_star": [
+    "NSG-001"
+  ],
+  "nsg_sources_list": [
+    "NSG-001"
+  ],
+  "nsg_ssh_from_any_keyword": [
+    "NSG-001"
+  ],
+  "nsg_ssh_from_internet": [
+    "NSG-001"
+  ],
+  "nsg_ssh_from_star": [
+    "NSG-001"
+  ],
+  "nsg_ssh_from_zero_cidr": [
+    "NSG-001"
+  ],
+  "nsg_ssh_from_zero_cidr_v6": [
+    "NSG-001"
+  ],
+  "secret_param_not_secure": [
+    "SEC-001"
+  ],
+  "stg_blob_public": [
+    "STG-003"
+  ],
+  "stg_blob_public_unset": [
+    "STG-003"
+  ],
+  "stg_empty_owner_tag": [
+    "TAG-001"
+  ],
+  "stg_good": [],
+  "stg_good_public_but_firewalled": [],
+  "stg_good_tls13": [],
+  "stg_http": [
+    "STG-001"
+  ],
+  "stg_http_unset": [
+    "STG-001"
+  ],
+  "stg_many_wrong": [
+    "STG-001",
+    "STG-002",
+    "STG-003",
+    "STG-004",
+    "STG-005",
+    "TAG-001"
+  ],
+  "stg_missing_env_tag": [
+    "TAG-001"
+  ],
+  "stg_no_tags": [
+    "TAG-001"
+  ],
+  "stg_open_network": [
+    "STG-004"
+  ],
+  "stg_open_network_unset": [
+    "STG-004"
+  ],
+  "stg_shared_key": [
+    "STG-005"
+  ],
+  "stg_tls10": [
+    "STG-002"
+  ],
+  "stg_tls11": [
+    "STG-002"
+  ],
+  "stg_tls_unset": [
+    "STG-002"
+  ],
+  "web_ftp_all_allowed": [
+    "WEB-003"
+  ],
+  "web_good": [],
+  "web_good_ftps_only": [],
+  "web_http": [
+    "WEB-001"
+  ],
+  "web_http_unset": [
+    "WEB-001"
+  ],
+  "web_no_identity": [
+    "WEB-004"
+  ],
+  "web_no_tags": [
+    "TAG-001"
+  ],
+  "web_remote_debugging": [
+    "WEB-005"
+  ],
+  "web_tls10": [
+    "WEB-002"
+  ],
+  "web_tls11": [
+    "WEB-002"
+  ]
+}

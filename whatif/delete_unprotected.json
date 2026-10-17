@@ -1,0 +1,13 @@
+{
+  "status": "Succeeded",
+  "changes": [
+    {
+      "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-pay/providers/Microsoft.Network/networkSecurityGroups/nsg",
+      "changeType": "Delete",
+      "before": {
+        "type": "Microsoft.Network/networkSecurityGroups",
+        "name": "nsg"
+      }
+    }
+  ]
+}

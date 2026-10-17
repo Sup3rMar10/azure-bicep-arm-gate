@@ -1,0 +1,8 @@
+{
+  "status": "Succeeded",
+  "changes": [],
+  "error": {
+    "code": "InvalidTemplate",
+    "message": "boom"
+  }
+}
