@@ -25,9 +25,9 @@ jobs:
           python-version: ${{ matrix.python }}
       - name: Install the pinned Bicep compiler
         run: |
-          curl -fsSL -o bicep "https://github.com/Azure/bicep/releases/download/${BICEP_VERSION}/bicep-linux-x64"
-          chmod +x bicep
-          sudo mv bicep /usr/local/bin/bicep
+          # not into the working directory: the repository has a bicep/ directory
+          curl -fsSL -o "$RUNNER_TEMP/bicep-cli" "https://github.com/Azure/bicep/releases/download/${BICEP_VERSION}/bicep-linux-x64"
+          sudo install -m 0755 "$RUNNER_TEMP/bicep-cli" /usr/local/bin/bicep
           bicep --version
       - run: python -m pip install pytest pyyaml
       - run: python -m pytest
